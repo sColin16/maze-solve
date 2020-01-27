@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <!-- Main style sheet -->
+        <link rel = "stylesheet" type = "text/css" href = "style.css">
+        <!-- p5js library (allows for easy canvas drawing) -->
+        <script src = "p5.min.js"></script>
+        <!-- Font awesome icons -->
+        <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css'
+            integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ'
+            crossorigin='anonymous'>
+    </head>
+
+    <body>
+        <div id = 'canvas-container'></div>
+        <script src = "main.js"></script>
+        <div id = 'block-select'>
+            <p class = "menu-item"><strong>Select Block:</strong></p>
+            <div id = "block-container" class = "menu-item">
+                <div class = "block active" id="wall"></div>
+                <div class = "block" id="erase"></div>
+                <div class = "block" id="obstacle"></div>
+            </div>
+        </div>
+        <br>
+        <div id = 'size-select'>
+            <div id = "size-select">
+                <p class = "menu-item"><b>Maze Size:</b></p>
+                <input type = "number" min="2" max = "100" class = "menu-item" id = "maze-size">
+            </div>
+            <div id = "wall-frequency-select">
+                <p class = "menu-item"><b>Wall Frequency:</b></p>
+                <input type = "number" min="0" max = "1" step = "0.01" class = "menu-item" id = "wall-frequency">
+            </div>
+            <div id = "obstacle-frequency-select">
+                <p class = "menu-item"><b>Obstacle Frequency:</b></p>
+                <input type = "number" min = "0" max = "1" step = "0.01" class = "menu-item"
+                    id = "obstacle-frequency">
+                <button id = 'reset-maze' class = "menu-item">Create Maze</button>
+            </div>
+        </div>
+        <br>
+        <div id = "maze-solve-controls">
+            <p class = "menu-item"><b>Solve Maze:</b></p>
+            <button id = "play" class = "menu-item control-button">
+                <span class = "help-text">Start Solve</span>
+                <i class = "fa fa-play control-icon"></i>
+            </button>
+            <button id = "pause" class = "menu-item control-button hidden">
+                <span class = "help-text">Pause Solve</span>
+                <i class = "fa fa-pause control-icon"></i>
+            </button>
+            <button id = "step" class = "menu-item control-button">
+                <span class = "help-text">Step Forward</span>
+                <i class = "fa fa-step-forward control-icon"></i>
+            </button>
+            <button id = "skip" class = "menu-item control-button">
+                <span class = "help-text">Skip To End</span>
+                <i class = "fa fa-fast-forward control-icon"></i>
+            </button>
+            <button id = "restart" class = "menu-item control-button">
+                <span class = "help-text">Restart Solve</span>
+                <i class = "fa fa-redo control-icon"></i>
+            </button>
+        </div>
+    </body>
+</html>

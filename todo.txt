@@ -1,0 +1,13 @@
+-- Clean up the code and comment it - its pretty messy in some places
+-- Block maze editing while a solve is occuring
+-- Automatically reset the solve when the maze is modified
+-- Draw the tiles that were explored as part of the draw maze function
+-- Allow step-by-step marking of the maze?
+-- Add a function to make a maze solvable
+-- Draw the maze as an image so that it takes less time for large mazes
+-- Maze solver should push information to the control handler or vice versa
+    becuase the pause button is still showing after a completed solve
+-- Extend the controls to a more general controls library
+-- Add experiment functionality, and maybe create some sort of library
+    for creating those experiments easily
+-- reset the coordinate that a solve start when you change the size between solves

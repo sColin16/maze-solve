@@ -1,0 +1,90 @@
+body {
+    background-color: black;
+    color:white;
+}
+
+p {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+button {
+    border-radius: 8px;
+    border-style: none;
+    padding: 8px;
+}
+
+button:hover {
+    background-color: darkgrey;
+}
+
+input[type=number] {
+    border-radius:8px;
+    border-style:solid;
+    padding: 8px;
+}
+
+.fa {
+    font-size: 16px;
+}
+
+.menu-item {
+    display: inline-block;
+}
+
+.hidden {
+    display:none;
+}
+
+.control-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.help-text {
+    visibility: hidden;
+    background-color:white;
+    position: absolute;
+    color: black;
+    width:100px;
+    border-radius:4px;
+    margin-left:-40px;
+    margin-top:30px;
+}
+
+.control-button:hover .help-text {
+    visibility: visible;
+}
+
+.block {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius:10px;
+    vertical-align: middle;
+    margin:5px;
+}
+
+.block:hover {
+    width: 60px;
+    height: 60px;
+    margin: 0
+}
+
+#wall {
+    background-color: #502900;
+}
+
+#erase {
+    background-color: #44E25B;
+}
+
+#obstacle {
+    background-color: #283593;
+}
+
+.active {
+    width:60px;
+    height:60px;
+    margin:0px;
+}
