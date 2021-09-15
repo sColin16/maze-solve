@@ -1,6 +1,5 @@
 var DEFAULTSIZE = 20;
 var DEFAULTWALLFREQ = 0;
-var DEFAULTOBSTFREQ = 0;
 var CANVASSIZE = 400;
 
 /****
@@ -122,12 +121,10 @@ class SettingsHandler {
 
         this.sizeField = document.getElementById('maze-size');
         this.wallFreqField = document.getElementById('wall-frequency');
-        this.obstFreqField = document.getElementById('obstacle-frequency');
         this.createMazeBtn = document.getElementById('reset-maze');
 
         this.sizeField.value = maze.size;
         this.wallFreqField.value = maze.wallFreq;
-        this.obstFreqField.value = maze.obstFreq;
 
         this.createMazeBtn.addEventListener('click', this.resetMaze.bind(this));
     }
@@ -135,9 +132,8 @@ class SettingsHandler {
     resetMaze() {
         var size = parseFloat(this.sizeField.value);
         var wallFreq = parseFloat(this.wallFreqField.value);
-        var obstFreq = parseFloat(this.obstFreqField.value);
 
-        this.maze.setUpMaze(size, wallFreq, obstFreq);
+        this.maze.setUpMaze(size, wallFreq);
         this.maze.resetBuffer();
         this.maze.draw();
 
@@ -150,19 +146,18 @@ class SettingsHandler {
 ****/
 // TODO: seperate the map and solving data into seperate objects
 class Maze {
-    constructor(size, wallFreq, obstFreq, mazeBuffer) {
+    constructor(size, wallFreq, mazeBuffer) {
         this.mazeBuffer = mazeBuffer;
 
-        this.setUpMaze(size, wallFreq, obstFreq);
+        this.setUpMaze(size, wallFreq)
     }
 
-    setUpMaze(size, wallFreq, obstFreq) {
+    setUpMaze(size, wallFreq) {
         this.size = size;
         this.width = CANVASSIZE/size; // The width, in pixels, of each square
         this.wallFreq = wallFreq;
-        this.obstFreq = obstFreq;
 
-        this.map = this.create2DArray(size, this.getTile, wallFreq, obstFreq);
+        this.map = this.create2DArray(size, this.getTile, wallFreq);
 
         this.resetDistances();
         this.clearEnds();
@@ -524,7 +519,7 @@ function setup() {
     mazeBuffer = createGraphics(CANVASSIZE, CANVASSIZE);
     mazeBuffer.textAlign(CENTER, CENTER);
 
-    var maze = new Maze(DEFAULTSIZE, DEFAULTWALLFREQ, DEFAULTOBSTFREQ, mazeBuffer);
+    var maze = new Maze(DEFAULTSIZE, DEFAULTWALLFREQ, mazeBuffer);
     var pathViewer = new PathViewer(maze);
     var mazeSolver = new MazeSolver(maze, pathViewer);
     var controlsHandler = new ControlsHandler(mazeSolver);
