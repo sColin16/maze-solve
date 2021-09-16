@@ -105,8 +105,6 @@ class BlockPlacer {
             return 0;
         } else if(block === 'wall') {
             return 1;
-        } else if(block === 'obstacle') {
-            return 2;
         }
     }
 }
@@ -184,13 +182,11 @@ class Maze {
         return arr;
     }
 
-    getTile(wallFreq, obstFreq) {
+    getTile(wallFreq) {
         var tile = Math.random();
 
         if(tile < wallFreq) {
             return 1; // Wall
-        } else if(tile < (wallFreq + obstFreq)) {
-            return 2; // Obstacle
         } else {
             return 0; // Empty tile
         }
